@@ -2,15 +2,13 @@ import pygame
 import random
 
 
-
-
 def x_ch():
     """""
-    Не позволяет яйцу и кирпичу заспавниться вместе.
+    Prevents egg and brick from spawning together.
     
-    :param x_egg: координата респавна яйца по иксу. Берется из основной части кода.
+    :param x_egg: X coordinate of the egg spawn. Taken from the main part of the code.
     :type x_egg: int.
-    :param x_brik: координата респавна кирпича по иксу. Сначала берется из основной части кода, а потом вычисляется в данной функции.
+    :param x_brik: x coordinate of brick spawn. X coordinate of brick respawn. First taken from the main part of the code, and then calculated in this function.
     :type x_brik: int.
     """""
     global x_egg, x_brik
@@ -19,9 +17,13 @@ def x_ch():
     else:
         return x_brik
 
+
 def player_draw():
     """""
-    Отвечает за анимацию передвижения персонажа
+    Responsible for character animation
+    
+    :param player_counter: Is a counter. When it reaches the specified value, it is reset.
+    :type player_counter: int.
     """""
     ct = 1
     global player_counter
@@ -34,14 +36,29 @@ def player_draw():
         ct = 1
     player_counter += ct
 
+
 def popadanie(x, y, x_pl, w_pl, y_pl, h_pl):
     """""
-        Отвечает за анимацию передвижения персонажа
+    Checks if the character caught a falling object.
+    
+    :param x: X coordinate of the falling object.
+    :type x: int.
+    :param y: Y coordinate of the falling object.
+    :type y: int.
+    :param x_pl: X coordinate of the player.
+    :type x_pl: int.
+    :param y_pl: Y coordinate of the player.
+    :type y_pl: int.
+    :param w_pl: Character width.
+    :type w_pl: int.
+    :param h_pl: Charater Height.
+    :type h_pl: int.
     """""
     if x in range(x_pl - w_pl, x_pl + w_pl) and y in range(y_pl - h_pl // 2, y_pl + h_pl // 2):
         return True
     else:
         return False
+
 
 if __name__ == '__main__':
     player_counter = 0
