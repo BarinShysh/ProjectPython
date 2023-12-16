@@ -126,6 +126,7 @@ if __name__ == '__main__':
             speed_entity = 0
             sp_pl = 0
             if keys[pygame.K_r]:
+                score2 = 0
                 y_egg = 55
                 y_brik = 55
                 starting = True
