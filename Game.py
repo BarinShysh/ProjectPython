@@ -208,7 +208,8 @@ if __name__ == '__main__':
                 score2 += 10
                 if score2 >= 70:
                     speed_entity += 1
-                    health_add += 0.5
+                if score2 >= 140:
+                    health_add += 1
                     score2 = 0
                     if health_add == 1:
                         health += 1
