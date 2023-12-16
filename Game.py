@@ -4,12 +4,14 @@ import random
 
 def x_ch():
     """""
-    Prevents egg and brick from spawning together.
+    Prevents egg and brick from spawning together. Returns x coordinate of the brick.
     
     :param x_egg: X coordinate of the egg spawn. Taken from the main part of the code.
     :type x_egg: int.
     :param x_brik: x coordinate of brick spawn. X coordinate of brick respawn. First taken from the main part of the code, and then calculated in this function.
     :type x_brik: int.
+    :returns: x_brik.
+    :rtype: int.
     """""
     global x_egg, x_brik
     while abs(x_egg - x_brik) < 250:
@@ -20,7 +22,7 @@ def x_ch():
 
 def player_draw():
     """""
-    Responsible for character animation
+    Responsible for character animation.  It displays a picture of the character, depending on the counter value.
     
     :param player_counter: Is a counter. When it reaches the specified value, it is reset.
     :type player_counter: int.
@@ -39,7 +41,7 @@ def player_draw():
 
 def popadanie(x, y, x_pl, w_pl, y_pl, h_pl):
     """""
-    Checks if the character caught a falling object.
+    Checks if the character caught a falling object. Returns True if caught, and False if not caught.
     
     :param x: X coordinate of the falling object.
     :type x: int.
@@ -53,6 +55,8 @@ def popadanie(x, y, x_pl, w_pl, y_pl, h_pl):
     :type w_pl: int.
     :param h_pl: Charater Height.
     :type h_pl: int.
+    :returns: True or False.
+    :rtype: bool.
     """""
     if x in range(x_pl - w_pl, x_pl + w_pl) and y in range(y_pl - h_pl // 2, y_pl + h_pl // 2):
         return True
