@@ -155,6 +155,7 @@ if __name__ == '__main__':
             screen.blit(loose, (w // 2, h // 2))
             starting = False
             if keys[pygame.K_r]:
+                score2 = 0
                 starting = True
                 health = start_health
                 health1 = myfont.render(str(health), True, 'Black')
