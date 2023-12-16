@@ -114,7 +114,6 @@ if __name__ == '__main__':
     max_score1 = myfont.render(str(max_score), True, 'Black')
     health1 = myfont.render(str(health), True, 'Black')
     loose = myfont.render('LOOSE', False, 'Red')
-    score2 = 0
     health_add = 0
     starting = False
     sp_en_test = False
@@ -127,6 +126,7 @@ if __name__ == '__main__':
             sp_pl = 0
             if keys[pygame.K_r]:
                 score2 = 0
+                score3 = 0
                 y_egg = 55
                 y_brik = 55
                 starting = True
@@ -156,6 +156,7 @@ if __name__ == '__main__':
             starting = False
             if keys[pygame.K_r]:
                 score2 = 0
+                score3 = 0
                 starting = True
                 health = start_health
                 health1 = myfont.render(str(health), True, 'Black')
@@ -206,16 +207,15 @@ if __name__ == '__main__':
                 elif score % 100 != 0 or score == 0:
                     score += 10
                 score2 += 10
-                if score2 >= 70:
+                score3 += 10
+                if score2 == 70:
                     speed_entity += 1
-                if score2 >= 140:
-                    health_add += 1
                     score2 = 0
-                    if health_add == 1:
-                        health += 1
-                        health_add = 0
-                        health1 = myfont.render(str(health), True, 'Black')
-                        pygame.display.update()
+                if score3 == 140:
+                    health += 1
+                    score3 = 0
+                    health1 = myfont.render(str(health), True, 'Black')
+                    pygame.display.update()
                 y_egg = 55
                 y_brik = 55
                 score1 = myfont.render(str(score), True, 'Black')
